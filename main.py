@@ -5,7 +5,8 @@ import random
 
 def sampling_without_replacement(S, k , seed ):
     
-    random.seed(seed)
+    if seed  != None:
+        random.seed(seed)
 
     """
     Universe S = all nodes of the grid graph G(n,m)
@@ -20,6 +21,31 @@ def sampling_without_replacement(S, k , seed ):
     
     result  = [S[i] for i in R]
     return result
+
+
+# ----------------------------------------------------
+# Function that used the sampling w/o replacement to 
+# generate a G(n,m) Graph & returns its adjacency list
+#
+# n - number of nodes
+# m - number of edges
+# seed - num to rerun exact experiment
+# ----------------------------------------------------
+def generate_gnm_using_sampler(n, m, seed=None):
+    # Universe of all possible edges
+    S = [(u, v) for u in range(n) for v in range(u+1, n)]
+
+    # Sample m edges using your function
+    sampled_edges = sampling_without_replacement(S, m, seed)
+
+    # Build adjacency list
+    adj = [[] for _ in range(n)]
+    for u, v in sampled_edges:
+        adj[u].append(v)
+        adj[v].append(u)
+
+    return adj   
+
 
 def main(): 
     # Example universe S : list of grid nodes
