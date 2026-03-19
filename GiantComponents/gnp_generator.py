@@ -14,7 +14,6 @@ def append_edge(E,i,j):
     
     if(i == j):
        return E;
-
     if(i+1 not in E.keys()):
         E[i+1]=[j+1,]
     else:
@@ -35,7 +34,7 @@ def generate_graph(n, p):
         if (l == float("inf")):
             return;
         k = k+l+1
-        if k < n*n: #(n *(n-1))//2
+        if k < n*n:
             i,j = math.floor(k/n),k%n
             print(f"{i+1} and {j+1}")
             E = append_edge(E,i,j) # Adjacency Matrix doesnt scale up well
