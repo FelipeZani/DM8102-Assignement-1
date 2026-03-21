@@ -31,9 +31,9 @@ class GNPGraphGenerator(unittest.TestCase):
 
 
     def test_gnp_edges_size(self):
-        n = 5
+        n = 10 
         graph_edges_nb = 0
-        sample = generate_GNP_graph(n,0.5)
+        sample = generate_GNP_graph(n,0.1)
         max_possible_edges_nb = int (n*(n-1)*0.5)
         graph_keys = list(sample.keys())
         for key in graph_keys:
