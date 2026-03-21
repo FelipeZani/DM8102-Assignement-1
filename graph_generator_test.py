@@ -20,7 +20,6 @@ class TestGraphGenerator(unittest.TestCase):
         sample = sampling_without_replacement(S,k,seed_val)
         self.assertFalse(sample == [(0,3),(0,3)],"Test if there's repeated elements in the reservoir") 
 
-
     def test_reservoir_occurence_statistical(self):
         # n : nb of elements in the stream, k : capacity of the reservoir and number of iterations which will run
         n, k, iterations = 10, 3, 20000
